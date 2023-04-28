@@ -20,6 +20,25 @@ function toggleContrast() {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function contact(event) {
   event.preventDefault();
   const loading = document.querySelector(".modal__overlay--loading");
@@ -68,12 +87,7 @@ function toggleModal(projectId) {
   return document.body.classList.add("modal--open");
 }
 
-const carSalesProject = document.getElementById("car-sales-project");
-if (carSalesProject) {
-  carSalesProject.addEventListener("click", () => {
-    toggleModal("car-sales-project");
-  });
-}
+
 
 
 const scaleFactor = 1/25;
@@ -88,3 +102,11 @@ function moveBackground(event){
         shapes[i].style.transform = `translate(${x * oddInteger}px, ${y * oddInteger}px)` 
     }
 }
+
+
+
+
+
+
+
+
