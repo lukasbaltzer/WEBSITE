@@ -557,10 +557,8 @@ nav {
 
 
 
-.images2-container {
-  width: 325px;
-  height: 75px;
-  overflow: hidden;
+.image-container {
+  justify-content: center;
 }
 
 .images2 {
@@ -570,9 +568,11 @@ nav {
   transition: transform 0.3s ease-in-out;
 }
 
-.images2:hover {
+.images:hover {
   transform: scale(1.1);
 }
+
+
 
 
 
