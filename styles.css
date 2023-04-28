@@ -24,10 +24,32 @@ p {
   font-size: 16px;
 }
 
+#about-me {
+  text-align: center;
+  background-color:#F8F8F8;
+  color: #333333;
+  padding: 40px;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+#about-me h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+#about-me p {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+
 html{
     scroll-behavior: smooth;
 
 }
+
 
 nav,
 .scroll,
@@ -51,7 +73,7 @@ nav,
 .container {
   padding: 50px 0;
   width: 100%;
-  
+ 
 }
 
 textarea {
@@ -70,6 +92,99 @@ textarea:focus {
   border-color: #6030b1;
   
 }
+
+
+.img-me {
+  border-radius: 10px; /* add rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* add box shadow */
+}
+
+
+
+#about-me-img {
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+#about-me-img h2 {
+  margin-top: 0;
+}
+
+.resume-img-container {
+  display: flex;
+  justify-content: center;
+}
+
+.resume-img-container img {
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px #999;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.resume-img-container img:hover {
+  transform: translateY(-5px);
+  background-color: #d2d2d2;
+}
+
+.resume-download {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.resume-download a {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 0px 5px #999;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+}
+
+.resume-download a:hover {
+  transform: translateY(-5px);
+  background-color: #6030b1;
+  color: white;
+}
+
+
+.resume-download span {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  padding: 10px 20px;
+  color: #444;
+}
+
+.resume-download a:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.resume-download a:hover:before {
+  opacity: 0;
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 input,
 textarea {
@@ -91,7 +206,7 @@ label {
 }
 .row {
   width: 100%;
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 12px;
 }
@@ -174,6 +289,7 @@ background-color: #242424;
 
 #landing-page {
   min-height: 100vh;
+  z-index: 3;
 }
 
 
@@ -185,6 +301,7 @@ background-color: #242424;
     display: flex;
     flex-direction: column;
     align-items: center;
+  
     
 }
 
@@ -201,6 +318,7 @@ background-color: #242424;
   width: 100%;
   max-width: 1000px;
   padding: 0 30px;
+  
 }
 
 .social__list {
@@ -226,7 +344,7 @@ background-color: #242424;
 .header__para {
   font-size: 24px;
   line-height: 2em;
-  max-width: 500px;
+  max-width: 1000px;
   text-align: center;
 
 
@@ -385,6 +503,10 @@ nav {
  transition: all 300ms ease;
 }
 
+
+.project__list{
+  max-width: 1200px;
+}
 .modal__about {
   background-color: rgb(245, 245, 245);
   transform: translateX(-110%);
@@ -553,9 +675,10 @@ nav {
 .project__wrapper {
   position: relative;
   border-radius: 20px;
-  box-shadow: 0 20px 80px 0 rgb(0, 0, 0, 0.45);
+  box-shadow: 0 20px 80px 0 rgb(0, 0, 0, 0.1);
   overflow: hidden;
   margin: 152px 0;
+  
 }
 
 .project__wrapper:hover .project__description {
@@ -574,7 +697,7 @@ nav {
   left: 90px;
   transform: translateY(100%);
   color: white;
-  max-width: 550px;
+  max-width: 1200px;
   opacity: 0;
   transition: opacity 300ms, transform 450ms ease;
 }
@@ -645,6 +768,28 @@ footer {
   
 }
 
+.backgroundsection{
+  background-color: #F8F8F8;
+}
+.section li {
+  margin-bottom: 50px;
+  margin-top: 10px;
+  font-size: 20px;
+  text-align: center; /* center the text */
+  max-width: 1200px; /* set the maximum width to 1200px */
+  margin-left: auto; /* center the element horizontally */
+  margin-right: auto; /* center the element horizontally */
+  background-color: #F8F8F8; /* change the background color to match the offwhite one */
+  padding: 20px; /* add some padding for better readability */
+}
+
+
+.section li b.orange {
+  font-size: 24px;
+  display: block;
+  text-align: center;
+  
+}
 
 /* shape 
 
@@ -654,7 +799,8 @@ shapes 3rd: 95*/
 
 .shape{
     position: fixed;
-    z-index: 0;
+    
+    
 }
 .shape--0{
     top: 15vh;
@@ -663,6 +809,7 @@ shapes 3rd: 95*/
 .shape--1{
     top: 15vh;
     left: 50vw;
+    
 }
 .shape--2{
     top: 15vh;

@@ -19,6 +19,7 @@ function toggleContrast() {
     
 }
 
+
 function contact(event) {
   event.preventDefault();
   const loading = document.querySelector(".modal__overlay--loading");
@@ -45,17 +46,35 @@ function contact(event) {
 }
 
 let isModalOpen = false;
-function toggleModal(){
+function toggleModal(projectId) {
+  if (isModalOpen) {
+    isModalOpen = false;
+    return document.body.classList.remove("modal--open");
+  }
 
-    if (isModalOpen){
-        isModalOpen = false;
-        return document.body.classList.remove("modal--open");
-        
+  if (projectId) {
+    const projectItem = document.getElementById(projectId);
+    if (projectItem) {
+      const projectDescription = projectItem.querySelector(".project__description");
+      if (projectDescription) {
+        projectDescription.classList.add("project__description--open");
+        isModalOpen = true;
+        return document.body.classList.add("modal--open");
+      }
     }
-    isModalOpen = true;
-    document.body.classList += " modal--open";
-    
+  }
+
+  isModalOpen = true;
+  return document.body.classList.add("modal--open");
 }
+
+const carSalesProject = document.getElementById("car-sales-project");
+if (carSalesProject) {
+  carSalesProject.addEventListener("click", () => {
+    toggleModal("car-sales-project");
+  });
+}
+
 
 const scaleFactor = 1/25;
 
@@ -66,6 +85,6 @@ function moveBackground(event){
     for (let i = 0; i< shapes.length; i++){
         const isOdd = i % 2 !== 0;
         const oddInteger = isOdd ? -1 :1 ;
-        shapes[i].style.transform = `translate(${x * oddInteger}px, ${y * oddInteger}px)`
+        shapes[i].style.transform = `translate(${x * oddInteger}px, ${y * oddInteger}px)` 
     }
 }
