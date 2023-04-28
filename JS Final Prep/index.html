@@ -1,32 +1,407 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://d3js.org/d3.v6.min.js"></script>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="index.css">
-  <title>User Posts</title>
-</head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="index.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("ZEaR-cQhK1VSQFI0o");
+   })();
+</script>
+    <script
+      src="https://kit.fontawesome.com/c8e4d183c2.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Lukas Baltzer</title>
+  </head>
+  <body>
+    <section id="landing-page" onmousemove="moveBackground(event)">
+      <div class="half-landingpage">
+        <img src="./assets/semi circle.svg" class="shape shape--0" alt="">
+        <img src="./assets/circle.svg" class="shape shape--1" alt="">
+        <img src="./assets/squiggly.svg" class="shape shape--2" alt="">
+        <img src="./assets/squiggly.svg" class="shape shape--3 " alt="">
+        <img src="./assets/circle.svg" class="shape shape--4" alt="">
+        <img src="./assets/semi circle.svg" class="shape shape--5" alt="">
+        <img src="./assets/triangle.svg" class="shape shape--6" alt="">
+        <img src="./assets/circle.svg" class="shape shape--7" alt="">
+        <img src="./assets/semi circle.svg" class="shape shape--8" alt="">
+      </div>
+      <nav>
+        <figure>
+          <img id="personal-logo" src="./assets/no-bg-logo.png" alt="" />
+        </figure>
+        <ul class="nav__link--list">
+        
+          <li class="nav__link">
+            <a
+              href="#projects"
+              class="nav__link--anchor link__hover-effect link__hover-effect--black"
+              >More Info</a
+            >
+          </li>
+          <li class="nav__link" onclick="toggleModal()">
+            <a
+              href="#"
+              class="nav__link--anchor link__hover-effect link__hover-effect--black"
+              >Contact</a
+            >
+          </li>
+          <li class="nav__link click" onclick="toggleContrast()">
+            <a
+              href="#"
+              class="nav__link--anchor link__hover-effect link__hover-effect--black"
+              ><i class="fas fa-adjust"></i
+            ></a>
+          </li>
+        </ul>
+      </nav>
 
-<body>
-  <div class="container">
-    <div class="row">
-      <div class="user-list">
-        <div class="user">
-          <div class="user-card">
-            <div class="user-card__container">
-              <h3>User's Name</h4>
-                <p><b>Email:</b> email@email.com</p>
-                <p><b>Phone:</b> 0000000000</p>
-                <p><b>Website:</b> <a href="https://website.website" target="_blank">website.website</a></p>
+      <header class="header">
+        <div class="header__content">
+          <h1 class="title orange">Meet</h1>
+          <h1 class="title">Lukas Baltzer,</h1>
+          <p class="header__para">
+
+            a highly motivated 
+            <b class="orange">MBA candidate</b>
+            and <b class="orange">ME honors student</b> with 
+            diverse experience. Lukas is
+            passionate about marrying his technical knowledge with business acumen in the realm of international consulting.
+            Having lived on three continents and spent a quarter of his life outside the USA, he possesses a unique outlook
+            and has gained a unique perspective on diverse cultures. 
+            <br>
+            <b class="orange">Additionally, as a dual citizen, Lukas can live and
+              work in 28 countries without a visa.</b>
+           
+          </p>
+          <div class="social__list">
+            <a href="https://www.linkedin.com/in/lukasbaltzer/" target="_blank" class="social__link click">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            
+           
+          </div>
+        </div>
+
+        
+      </header>
+      
+      <a href="#">
+      <button class="mail__button click" onclick="toggleModal()">
+        <i class="fas fa-envelope"></i>
+      </button>
+    </a>
+      <a href="#projects" class="scroll">
+        <div class="scroll__icon click"></div>
+      </a>
+
+      <div class="modal">
+        <div class="modal__half modal__about">
+            
+            <img src="assets/IMG_1605.jpeg" alt="Description of the image" class="img-me">
+          
+        </div>
+        <div class="modal__half modal__contact">
+            <i class="fas fa-times modal__exit click" onclick="toggleModal()"></i>
+            <h3 class="modal__title modal__title--contact">Excited to connect!</h3>
+            <h4 class="modal__sub-title modal__sub-title--contract">
+                
+            </h4>
+            <form id="contact__form" onsubmit="contact(event)">
+                <div class="form__item">
+                    <label class="form__item--label" for="name">Name</label>
+                    <input class="input" name="user_name" type="text" required></input>
+                </div>
+                <div class="form__item">
+                    <label class="form__item--label" for="email">Email</label>
+                    <input class="input" name="user_email" type="email" required ></input>
+                </div>
+                <div class="form__item">
+                    <label class="form__item--label" for="message">Message</label>
+                    <textarea class="input" name="message" type="text" required></textarea>
+                </div>
+
+                
+                <button id="contact__submit" class="form__submit">
+                    Send it my way!
+                </button>
+                
+            </form>
+
+                <div class="modal__overlay modal__overlay--loading">
+                    <i class="fas fa-spinner"></i>
+                </div>
+
+                <div class="modal__overlay modal__overlay--success">
+                    Thanks! Looking forward to speaking with you soon!
+                </div>
+
+        </div>
+
+        
+      </div>
+
+    
+        
+
+
+    </section>
+    
+    
+    
+    
+    <section id="projects">
+      <div class="container" >
+        <div class="row">
+          <h1 class="section__title">
+            Here is a bit more about <span class="orange">me:</span>
+          </h1>
+          <ul class="project__list" class="section">
+          
+            <div id="about-me" class="section li">
+              <div class="backgroundsection">
+                <ul>
+                  <li>
+                    <b class="orange">Professional Experience:</b> 
+                    <br>
+                    <b class="bold"> Department of Defense Army Futures Command Exoskeleton Project Advisor:</b>
+                    <br>
+                    <br>
+                    As a part of a team of only three interns 
+                    ever invited to Ft. Benning, I helped lead consulting efforts for the Army Future's Command's 
+                    response to a Pentagon's top-priority goal - integrating exoskeletons in the military. <b class="bold">Our team 
+                    successfully restructured the Army's approach, devising a new 3-stage integration plan, which was
+                     submitted to the Pentagon seeking US congress funding for exoskeleton advances.</b> I gained an 
+                     understanding of big picture technology research and future implementation, as well as the
+                      ability to navigate through differing ideas and find the best solutions. During this experience,
+                       I became a solutions-oriented professional, skilled collaborator, and an effective 
+                       cross-functional communicator.
+                        <br>
+                        <br>
+                       <div class="image-container">
+                        <img src="./assets/BD.jpeg" alt="Image 1" class="images">
+                       
+                       
+                        
+                        
+                        
+                        <img src="./assets/exo.jpeg" alt="Image 2" class="images">
+                        <img src="./assets/tank.jpeg" alt="Image 3" class="images">
+                      </div>
+                      
+                        <br>
+                        <br>
+                        <video class="video" controls autoplay muted loop>
+                          <source src="./assets/movie.mp4" type="video/mp4">
+                        </video>
+                        <br>
+                        <br>
+                       <b class="bold"> Mercedes-Benz Parts Quality Engineer:</b>
+                       <br>
+                       <br>
+                       As an intern at Mercedes Benz US International, I played a key role in identifying and implementing
+                        short-term and long-term solutions to correct repetitive manufacturing issues. By delivering a 
+                        temporary pinched-wire harness solution, <b class="bold">I was able to help the company achieve estimated cost 
+                        savings of over $100,000.</b> Additionally, I implemented agile methodologies into successful 
+                        cross-functional department efforts. During my time at Mercedes Benz, I also contributed to 
+                        the company's focus on sustainability by helping demonstrate possible future wire harness snagging 
+                        issues related to the new EQS pre-manufacturing seen with snagging harnesses during manufacturing.
+                            <br>
+                            <br>
+
+                        <div class="image-container1">
+                          
+                          <img src="./assets/M-Benz.jpg" alt="Image 3" class="images">
+                        </div>
+                  </li>
+
+
+
+
+
+
+
+                  <li>
+                    <b class="orange">Entrepreneurial Experience:</b> 
+                    <br>
+                    As a co-founder of an early-stage startup <a href="https://www.microtype.tech" class="expand-link">Microtype Technologies</a>,
+                     I played a crucial role in commercializing a cutting-edge method for additive manufacturing that aims
+                      to enhance MEMS prototyping worldwide. Through compelling pitches in a National Science Foundation hub 
+                      competition, MICROTYPE <b class="bold">secured funding for the business from venture capitalists and other judges.</b> Our participation 
+                      in the 2023 Aldag competition through the EDGE incubator showcased our innovative solution for the future of 
+                      MEMS manufacturing, whose IP technology has already received half a million dollars from the National Science 
+                      Foundation's PFI fund.
+                      <br>
+                      <br>
+                      In addition, I am part of the STEM-to-the-MBA honors program where STEM students routinely
+                       work on creating functional business plans. As part of a small team, I presented an
+                        award-winning business project to NASA executives and university professors. This 
+                        business created a business plan to commercialize a NASA solar cell patent through 
+                        a consumer bandage application. These experiences have honed my entrepreneurial skills 
+                        and broadened my understanding of the business world.
+                  </li>
+
+                  <div class="logo-section">
+                    
+                
+                   
+                    
+                    <video autoplay muted controls class="iframe">
+                      <source src="https://microtype.tech/wp-content/uploads/2023/04/Microtype%20Aldag%202023.mp4" type="video/mp4">
+                      
+                    </video>
+                    
+                   
+                  </div>
+                  <br>
+                  <br>
+
+                  <a href="https://www.microtype.tech/" target="_blank">
+                    <img src="./assets/Logo2.png" alt="Image Description" class="images2">
+                  </a>
+                  
+                
+
+                  <li>
+                    <b class="orange">International Experience:</b> 
+                    <br>
+                    <b class="bold">As someone who grew up in Chennai, India for 5 years,</b> I have a deep appreciation for diverse cultures and ways of doing things. Living in a challenging cross-cultural environment from a young age helped shape my <b class="bold">adaptability and cultural awareness.</b>
+
+                      With a dual citizenship and a passion for exploration, I have been fortunate enough to gain a wealth of international experiences that have further shaped my personal and professional growth. <b class="bold">Having lived on three different continents, visited 5, and traveled to 28 countries to date,</b> I have developed a unique perspective on adapting to different cultures and ways of doing things. These experiences have taught me to think creatively and work effectively with people from diverse backgrounds.
+
+                      During my international travels, I have also been privileged to give back through various volunteer activities. For instance, I had the opportunity to teach English fluency to middle and high school students in an underprivileged community school in Santiago, Chile, where I also honed my Spanish conversational skills. I have also contributed to community development projects in Chacsinkín, Mexico, and volunteered in a mission hospital in Blantyre, Malawi, where I empowered ostracized children through encouragement and support.
+
+                      Furthermore, my international experiences have extended to my academic pursuits. I studied for a semester at the highest accredited engineering university in Ireland, University College Dublin, which exposed me to diverse perspectives and cutting-edge research. I also guided local teens toward higher language proficiency in Väätsa, Estonia, by helping run an English improvement week-long camp.
+                        <br>
+                        <br>
+                        <div class="accomplishments">
+                          <div class="accomplishment">
+                            <div class="icon">
+                              <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="description">
+                              <h3>5 Continents Visited</h3>
+                            </div>
+                          </div>
+                          <div class="accomplishment">
+                            <div class="icon">
+                              <i class="fas fa-home"></i>
+                            </div>
+                            <div class="description">
+                              <h3>1/4 Life Outside USA</h3>
+                            </div>
+                          </div>
+                          <div class="accomplishment">
+                            <div class="icon">
+                              <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="description">
+                              <h3>28 Countries</h3>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        
+
+                  </li>
+            
+                  
+                </ul>
+              </div>
+              
             </div>
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+
+            <li class="project">
+              <section id="about-me">
+                <div id="about-me-img">
+                  <div class="resume-img-container">
+                    <a href="./assets/Resume-April27-screenshot.png" target="_blank" >
+                      <img src="./assets/Resume-April27-screenshot.png" alt="Resume">
+                    </a>
+                  </div>
+                </div>
+              </section>
+            </li>
+            
+            
+          </ul>
+        </div>
+      </div>
+
+     
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="row footer__row">
+          <figure>
+            <img src="./assets/no-bg-logo.png" class="footer__logo--img" alt="" />
+          </figure>
+          <div class="footer__social--list">
+            
+            
+            <a href="https://www.linkedin.com/in/lukasbaltzer/" target="_blank" class="
+            footer__social--link 
+            link__hover-effect 
+            link__hover-effect--white"> LinkedIn
+            </a>
+            <a href="#" onclick="toggleModal()" class="
+            footer__social--link 
+            link__hover-effect 
+            link__hover-effect--white"> Contact
+            </a>
+            <a href="./assets/Resume-April27-screenshot.png" target="_blank" class="
+            footer__social--link 
+            link__hover-effect 
+            link__hover-effect--white"> Resume
+            </a>
+        
+          </div>
+
+          <div class="footer__copyright">
+            Copyright &copy; 2023 Lukas Baltzer
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</body>
-<script src="index.js"></script>
-
+    </footer>
+  </body>
 </html>

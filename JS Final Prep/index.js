@@ -1,33 +1,112 @@
-// API 1: "https://jsonplaceholder.typicode.com/users"
-// API 2: "https://jsonplaceholder.typicode.com/posts?userId=:id"
+// template_c2nbzye
 
-async function main(){
+// service_f2qxd1w
 
-    users = await fetch("https://jsonplaceholder.typicode.com/users");
-    usersData = await users.json();
+// ZEaR-cQhK1VSQFI0o
 
-    usersList = document.querySelector('.user-list')
+let contrastToggle = false;
 
-    usersList.innerHTML = usersData.map(user => userHTML(user)).join("");
+function toggleContrast() {
+    contrastToggle = !contrastToggle;
 
-          console.log(usersData)
+    if (contrastToggle){
+        document.body.classList += " dark-theme"
+    }
+
+    else {
+        document.body.classList.remove('dark-theme')
+    }
+    
 }
 
-function userHTML(user) {
-    return `<div class="user-card" onclick="showUserPosts(${user.id}) ">
-            <div class="user-card__container">
-              <h3>${user.name}</h3>
-                <p><b>Email:</b> ${user.email}</p>
-                <p><b>Phone:</b> ${user.phone}</p>
-                <p><b>Website:</b> <a href="https://${user.website}" target="_blank">${user.website}</a></p>
-            </div>
-          </div>` 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function contact(event) {
+  event.preventDefault();
+  const loading = document.querySelector(".modal__overlay--loading");
+  const success = document.querySelector(".modal__overlay--success");
+  loading.classList += " modal__overlay--visible";
+  emailjs
+    .sendForm(
+      "service_f2qxd1w",
+      "template_c2nbzye",
+      event.target,
+      "ZEaR-cQhK1VSQFI0o"
+    )
+    .then(() => {
+      loading.classList.remove("modal__overlay--visible");
+      success.classList += " modal__overlay--visible";
+    })
+    .catch(() => {
+      loading.classList.remove("modal__overlay--visible");
+      alert(
+        "The email service is temporarily down. Please contact 'lukas@thebaltzers.com' directly. Looking forward to speaking!"
+      );
+    });
+
 }
 
-main();
+let isModalOpen = false;
+function toggleModal(projectId) {
+  if (isModalOpen) {
+    isModalOpen = false;
+    return document.body.classList.remove("modal--open");
+  }
 
-function showUserPosts(id) {
-    localStorage.setItem("id", id)
-    window.location.href = 'http://127.0.0.1:5500/user.html'
-    console.log(id)
+  if (projectId) {
+    const projectItem = document.getElementById(projectId);
+    if (projectItem) {
+      const projectDescription = projectItem.querySelector(".project__description");
+      if (projectDescription) {
+        projectDescription.classList.add("project__description--open");
+        isModalOpen = true;
+        return document.body.classList.add("modal--open");
+      }
+    }
+  }
+
+  isModalOpen = true;
+  return document.body.classList.add("modal--open");
 }
+
+
+
+
+const scaleFactor = 1/25;
+
+function moveBackground(event){
+    const shapes = document.querySelectorAll('.shape');
+    const x = event.clientX * scaleFactor;
+    const y = event.clientY * scaleFactor;
+    for (let i = 0; i< shapes.length; i++){
+        const isOdd = i % 2 !== 0;
+        const oddInteger = isOdd ? -1 :1 ;
+        shapes[i].style.transform = `translate(${x * oddInteger}px, ${y * oddInteger}px)` 
+    }
+}
+
+
+
+
+
+
+
+
