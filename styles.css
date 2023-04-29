@@ -389,15 +389,15 @@ background-color: #242424;
 .scroll {
   position: absolute;
   bottom: 20px;
-  left: 50%;
-  transform: translate-X(-50%);
+  left: 48.85%;
+  transform: translate-X(-100%);
 }
 
 .scroll__icon {
   border: 2px solid #242424;
   border-radius: 24px;
-  width: 20px;
-  height: 30px;
+  width: 25px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -414,10 +414,10 @@ background-color: #242424;
 
 @keyframes scroll {
   0% {
-    transform: translateY(3px);
+    transform: translateY(5px);
   }
   100% {
-    transform: translateY(-3px);
+    transform: translateY(-5px);
   }
 }
 /* NAV */
@@ -522,7 +522,7 @@ nav {
 
 
 .images3 {
-	width: 33%;
+	max-width: 33%;
 	height: auto;
 	
 	border-radius: 10px;
@@ -557,9 +557,8 @@ nav {
 
 
 
-
 .images2 {
-  width: 488px;
+  max-width: 400px;
   
   position: relative;
   transition: transform 0.3s ease-in-out;
@@ -573,10 +572,10 @@ nav {
 
 
 
-
-
 .skill-icons {
   display: flex;
+  flex-wrap: nowrap;
+  
 }
 
 .skill-icons i {
@@ -602,6 +601,11 @@ nav {
 .skill-icons i:hover {
   transform: scale(1.4);
 }
+
+
+
+
+
 
 
 
@@ -1159,12 +1163,28 @@ shapes 3rd: 95*/
 
 
 
-
-
-
+    .scroll {
+      position: absolute;
+      bottom: 20px;
+      left: 46%;
+      transform: translate-X(-100%);
+    }
+    
+    .scroll__icon {
+      border: 2px solid #242424;
+      border-radius: 24px;
+      width: 15px;
+      height: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+   
     
 
 
+    
 
 
     .skill-icons {
@@ -1179,7 +1199,8 @@ shapes 3rd: 95*/
       transition: transform 0.3s ease-in-out;
     }
     
-    .skill-icons i:focus::after {
+    .skill-icons i:focus::after,
+    .skill-icons i:active::after {
       content: attr(title);
       position: absolute;
       top: -30px;
@@ -1193,12 +1214,13 @@ shapes 3rd: 95*/
       opacity: 0.9;
     }
     
-    .skill-icons i:focus {
+    .skill-icons i:focus,
+    .skill-icons i:active {
       transform: scale(1.4);
     }
+
     
     
-  
     
 
 
@@ -1222,9 +1244,8 @@ shapes 3rd: 95*/
         padding: 40px;
     }
 
-
     .images3 {
-      width: 70%;
+     max-width: 70%;
       height: auto;
       
       border-radius: 10px;
@@ -1238,7 +1259,7 @@ shapes 3rd: 95*/
     .iframe {
       display: block;
       margin: 0 auto;
-      max-width: 90%;
+      max-width: 100%;
       height: auto;
     }
     
@@ -1517,7 +1538,7 @@ shapes 3rd: 95*/
     }
 
     .images2 {
-      width: 80%;
+      width: 90%;
       
       
       position: relative;
@@ -1539,14 +1560,15 @@ shapes 3rd: 95*/
     .accomplishments {
       flex-direction: column;
       padding: 20px;
+      width: 95%;
     }
   
     .accomplishment {
-      width: 100%;
+      width: 75%;
       height: auto;
       margin: 20px 0;
     }
-}
+  
 
 
 
@@ -1565,7 +1587,7 @@ shapes 3rd: 95*/
 .expand-link:hover {
   transform: scale(5);
 }
-
+}
 
 
 
