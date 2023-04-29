@@ -105,7 +105,7 @@ textarea:focus {
 
 #about-me-img {
   background-color: rgba(245, 245, 245);
-  padding: 20px;
+  padding: 0px;
 }
 
 #about-me-img h2 {
@@ -113,23 +113,30 @@ textarea:focus {
   
 }
 
+
+
+
+
+
 .resume-img-container {
   display: flex;
   justify-content: center;
+  max-width: 100%;
+  
 }
 
 .resume-img-container img {
+  width: 100%;
+  height: auto;
   border-radius: 10px;
   box-shadow: 0px 0px 5px #999;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 }
 
-.resume-img-container img:hover {
-
-  background-color: #d2d2d2;
+.resume-img-container:hover img {
   transform: scale(1.1);
-  transition: all 0.2s ease-in-out;
+  box-shadow: 0px 0px 10px #999;
 }
 
 .resume-download {
@@ -144,43 +151,18 @@ textarea:focus {
   box-shadow: 0px 0px 5px #999;
   transition: all 0.3s ease-in-out;
   text-decoration: none;
+  padding: 10px 20px;
+  color: #444;
+  background-color: #fff;
+  border: 2px solid #444;
 }
 
 .resume-download a:hover {
   transform: translateY(-5px);
   background-color: #6030b1;
   color: white;
+  border-color: #6030b1;
 }
-
-
-.resume-download span {
-  display: inline-block;
-  position: relative;
-  z-index: 1;
-  padding: 10px 20px;
-  color: #444;
-}
-
-.resume-download a:before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #fff;
-  opacity: 0;
-  transition: all 0.3s ease-in-out;
-}
-
-.resume-download a:hover:before {
-  opacity: 0;
-  
-}
-
-
-
 
 
 
@@ -516,21 +498,37 @@ nav {
 }
 
 
-.image-container {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+.slider{
+  display: flex;
 }
 
 .images {
-	width: 300px;
+  width: 97%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out;
+}
+
+.images:hover {
+  transform: scale(1.05);
+}
+
+
+
+
+
+
+
+
+.images3 {
+	width: 33%;
 	height: auto;
-	margin: 0 5px;
+	
 	border-radius: 10px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 	transition: transform 0.3s ease-in-out;
 	object-fit: cover;
-
 }
 
 .logo-section {
@@ -549,7 +547,7 @@ nav {
 }
 
 .logo-section:hover .iframe {
-  transform: scale(1.25);
+  transform: scale(1.05);
 }
 
 
@@ -558,18 +556,16 @@ nav {
 
 
 
-.image-container {
-  justify-content: center;
-}
+
 
 .images2 {
   width: 488px;
-  height: 113;
+  
   position: relative;
   transition: transform 0.3s ease-in-out;
 }
 
-.images:hover {
+.images2:hover {
   transform: scale(1.1);
 }
 
@@ -859,6 +855,19 @@ nav {
   margin-top: 8px;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 .project__description--link {
   color: white;
   font-size: 20px;
@@ -1027,12 +1036,7 @@ shapes 3rd: 95*/
 
 
 
-    .image-container {
-      position: relative;
-      margin: 0 5px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    }
+    
   
     .slider {
       display: flex;
@@ -1047,7 +1051,7 @@ shapes 3rd: 95*/
       width: 100%;
       height: 400px;
     }
-  
+    
     .slide {
       scroll-snap-align: start;
       flex-shrink: 0;
@@ -1056,39 +1060,20 @@ shapes 3rd: 95*/
       border-radius: 10px;
       overflow: hidden;
     }
-  
+    
     .slide img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.3s ease-in-out;
     }
-  
+    
     .slide:hover img {
       transform: scale(1.1);
     }
-  
-    .prev,
-    .next {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: auto;
-      padding: 16px;
-      color: white;
-      font-weight: bold;
-      font-size: 20px;
-      cursor: pointer;
-      z-index: 1;
-    }
-  
-    .prev {
-      left: 10px;
-    }
-  
-    .next {
-      right: 10px;
-    }
+    
+    
+    
 
 
 
@@ -1155,20 +1140,42 @@ shapes 3rd: 95*/
     }
 
 
-    
+    .images3 {
+      width: 70%;
+      height: auto;
+      
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease-in-out;
+      object-fit: cover;
+    }
 
 
 
     .iframe {
       display: block;
       margin: 0 auto;
-      max-width: 100%;
+      max-width: 90%;
       height: auto;
     }
     
     
 
-
+    .resume-img-container {
+      display: flex;
+      justify-content: center;
+      width: 87.5%;
+      margin: 0 auto;
+    }
+  
+    .resume-img-container img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0px 0px 5px #999;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+    }
 
     
     
@@ -1391,8 +1398,9 @@ shapes 3rd: 95*/
     }
 
     .images2 {
-      width: 100%;
-      height: 100px;
+      width: 80%;
+      
+      
       position: relative;
       animation: bounce 1s infinite;
     }
